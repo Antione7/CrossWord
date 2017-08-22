@@ -1,0 +1,19 @@
+#cross_words:
+#    resource: "@CrossWordApiBundle/Controller/"
+#    type:     rest
+#    prefix:   /api
+
+#app:
+#    resource: '@AppBundle/Controller/'
+#    type: annotation
+
+#users:
+#    type:     rest
+#    resource: AppBundle\Controller\UsersController
+#    prefix: /api
+
+fallback:
+    path: /{url}
+    defaults: { _controller: CrossWordApiBundle:Default:index, url: null }
+    requirements:
+        url: .*
