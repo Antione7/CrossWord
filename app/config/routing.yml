@@ -1,16 +1,7 @@
-#cross_words:
-#    resource: "@CrossWordApiBundle/Controller/"
-#    type:     rest
-#    prefix:   /api
-
-#app:
-#    resource: '@AppBundle/Controller/'
-#    type: annotation
-
-#users:
-#    type:     rest
-#    resource: AppBundle\Controller\UsersController
-#    prefix: /api
+words:
+    resource: "CrossWordApiBundle/Controller/WordsController"
+    type:     rest
+    prefix:   /api
 
 fallback:
     path: /{url}

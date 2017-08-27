@@ -1,4 +1,0 @@
-services:
-#    cross_word_api.example:
-#        class: CrossWordApiBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
