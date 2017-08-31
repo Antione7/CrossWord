@@ -1,5 +1,5 @@
 words:
-    resource: "CrossWordApiBundle/Controller/WordsController"
+    resource: \CrossWordApiBundle\Controller\WordsController
     type:     rest
     prefix:   /api
 

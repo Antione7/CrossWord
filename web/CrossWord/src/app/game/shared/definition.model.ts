@@ -1,5 +1,5 @@
 export class Definition {
-    libelle: string;
+    Libelle: string;
 }
 
 

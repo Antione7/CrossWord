@@ -3,50 +3,82 @@
 namespace CrossWordApiBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+use JMS\Serializer\Annotation\SerializedName;
 
 /**
- * @ODM\Document
+ * @ODM\Document(db="dictionary", collection="word")
  */
 class Word {
 
     /**
      * @ODM\Id
      */
-    private $id;
+    private $_id;
 
     /**
      * @ODM\Field(type="string")
      * @ODM\Index
+     * @SerializedName("Libelle")
      */
-    private $libelle;
+    private $Libelle;
 
     /**
-     * @ODM\EmbedMany(targetDocument="Definition")
+     * @ODM\Field(type="collection")
+     * @SerializedName("Definitions")
      */
-    private $definitions = array();
+    private $Definitions = array();
 
-    public function getId() {
-        return $this->id;
+    /**
+     * Get id
+     *
+     * @return id $id
+     */
+    public function getId()
+    {
+        return $this->_id;
     }
 
-    public function getLibelle() {
-        return $this->libelle;
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     * @return $this
+     */
+    public function setLibelle($libelle)
+    {
+        $this->Libelle = $libelle;
+        return $this;
     }
 
-    public function getDefinitions() {
-        return $this->definitions;
+    /**
+     * Get libelle
+     *
+     * @return string $libelle
+     */
+    public function getLibelle()
+    {
+        return $this->Libelle;
     }
 
-    public function setId($id) {
-        $this->id = $id;
+    /**
+     * Set definitions
+     *
+     * @param collection $definitions
+     * @return $this
+     */
+    public function setDefinitions($definitions)
+    {
+        $this->Definitions = $definitions;
+        return $this;
     }
 
-    public function setLibelle($libelle) {
-        $this->libelle = $libelle;
+    /**
+     * Get definitions
+     *
+     * @return collection $definitions
+     */
+    public function getDefinitions()
+    {
+        return $this->Definitions;
     }
-
-    public function setDefinitions($definitions) {
-        $this->definitions = $definitions;
-    }
-
 }

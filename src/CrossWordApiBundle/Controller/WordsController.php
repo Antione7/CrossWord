@@ -4,22 +4,20 @@ namespace CrossWordApiBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations\Get;
-use CrossWordApiBundle\Document\Word;
-use CrossWordApiBundle\Document\Definition;
 use Symfony\Component\HttpFoundation\Request;
 
 class WordsController extends FOSRestController {
 
     /**
-     * @Get("/words", name="word-list")
+     * @Get("/words")
      */
-    public function getWordByName(Request $request) {
+    public function getWordsAction(Request $request) {
 
         $repository = $this->get('doctrine_mongodb')
                 ->getManager()
-                ->getRepository();
+                ->getRepository('CrossWordApiBundle:Word');
 
-        $word = $repository->find('abaisse');
+        $word = $repository->findOneBy(['Libelle' => 'observable']);
         
         $view = $this->view(['data' => $word]);
         return $this->handleView($view);
